@@ -502,8 +502,8 @@ class Resources:
 
             # Canonicalize the accelerator names.
             accelerators = {
-                accelerator_registry.canonicalize_accelerator_name(acc):
-                acc_count for acc, acc_count in accelerators.items()
+                accelerator_registry.canonicalize_accelerator_name(acc): acc_count
+                for acc, acc_count in accelerators.items()
             }
 
             acc, _ = list(accelerators.items())[0]
@@ -836,8 +836,8 @@ class Resources:
             image_size = self.cloud.get_image_size(image_id, region)
             if image_size >= self.disk_size:
                 with ux_utils.print_exception_no_traceback():
-                    size_comp = ('larger than' if image_size > self.disk_size
-                                 else 'equal to')
+                    size_comp = ('larger than'
+                                 if image_size > self.disk_size else 'equal to')
                     raise ValueError(
                         f'Image {image_id!r} is {image_size}GB, which is '
                         f'{size_comp} the specified disk_size: '
@@ -1220,8 +1220,8 @@ class Resources:
             accelerators = state.pop('_accelerators', None)
             if accelerators is not None:
                 accelerators = {
-                    accelerator_registry.canonicalize_accelerator_name(acc):
-                    acc_count for acc, acc_count in accelerators.items()
+                    accelerator_registry.canonicalize_accelerator_name(acc): acc_count
+                    for acc, acc_count in accelerators.items()
                 }
             state['_accelerators'] = accelerators
 

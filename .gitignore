@@ -12,3 +12,8 @@ sky/clouds/service_catalog/data_fetchers/*.csv
 .vscode/
 .idea/
 
+# Shell redirection artifacts
+=[0-9]*
+>[0-9]*
+*.tmp
+*.log
